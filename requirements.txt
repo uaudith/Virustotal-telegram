@@ -1,0 +1,9 @@
+certifi==2019.9.11
+chardet==3.0.4
+idna==2.8
+pyaes==1.6.1
+Pyrogram==0.15.1
+PySocks==1.7.0
+requests==2.22.0
+TgCrypto==1.2.0
+
