@@ -1,0 +1,40 @@
+{
+    "name": "Virustotal-Telegram",
+    "description": "A telegram bot which can scan telegram files smaller than 32MB.",
+    "keywords": [
+        "telegram",
+        "virustotal"
+    ],
+    "repository": "https://github.com/uaudith/Virustotal-telegram",
+    "env": {
+        "APP_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": ""
+        },
+        "BOT_TOKEN": {
+            "description": "Telegram bot token. From Bot_Father",
+            "value": ""
+        },
+        "VIRUSTOTAL_API": {
+            "description": "Add your virustotal api.",
+            "value": ""
+        }
+    },
+    "addons": [
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}

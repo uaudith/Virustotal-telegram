@@ -1,8 +1,8 @@
 import requests
 import json
+from config import Config
 
-
-apikey='add your api key within "" '
+apikey = Config.VIRUSTOTAL_API
 
 
 class virus():

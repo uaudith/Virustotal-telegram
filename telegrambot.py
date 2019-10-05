@@ -3,10 +3,16 @@ from pyrogram import ForceReply, InputMediaPhoto
 from virustotal import virus
 import time, os
 import math
-msgdic={}
+from config import Config
 
+msgdic = {}
 
-app = Client("hey",123456,"client_secret within"" ",  bot_token="add_your_bot_token within"" ")
+app = Client(
+	"hey",
+	api_id=Config.APP_ID,
+	api_hash=Config.API_HASH,
+	bot_token=Config.BOT_TOKEN
+)
 
 
 def progress(client, current, total, message_id, chat_id, start):
