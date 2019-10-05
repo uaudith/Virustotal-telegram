@@ -1,9 +1,11 @@
-from pyrogram import Client, Filters
-from pyrogram import ForceReply, InputMediaPhoto
-from virustotal import virus
-import time, os
 import math
+import os
+import time
+
+from pyrogram import Client, Filters, ForceReply, InputMediaPhoto
+
 from config import Config
+from virustotal import virus
 
 msgdic = {}
 
@@ -71,27 +73,33 @@ def TimeFormatter(milliseconds: int) -> str:
 
 @app.on_message(Filters.document)
 def download_telegram_media(client, message):
-
-    msg = client.send_message(
-      chat_id=message.chat.id,
-      text='Download is being started...\nPlease Wait !'
-    )
-    start_time = time.time()
-    download_location = client.download_media(
-      message=message,
-      file_name='./',
-      progress=progress,
-      progress_args=(
-        msg.message_id,
-        message.chat.id,
-        start_time
-      )
-    )
-    userid=message.from_user.id
-    client.delete_messages(userid,msg.message_id)
-    print('a')
-    check_size(download_location,userid)
-    print('b')
+	me=app.get_users('me').id
+	if not message.from_user.id == me :
+		client.send_message(
+			chat_id=message.chat.id,
+			text = 'Please host your own bot at \nhttps://github.com/uaudith/Virustotal-telegram'
+		)
+		return
+	msg = client.send_message(
+	  chat_id=message.chat.id,
+	  text='Download is being started...\nPlease Wait !'
+	)
+	start_time = time.time()
+	download_location = client.download_media(
+	  message=message,
+	  file_name='./',
+	  progress=progress,
+	  progress_args=(
+		msg.message_id,
+		message.chat.id,
+		start_time
+	  )
+	)
+	userid=message.from_user.id
+	client.delete_messages(userid,msg.message_id)
+	print('a')
+	check_size(download_location,userid)
+	print('b')
 
 def send_msg(user,txt):
   app.send_message(user,txt,parse_mode="markdown")
