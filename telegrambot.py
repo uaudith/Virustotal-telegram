@@ -73,7 +73,7 @@ def TimeFormatter(milliseconds: int) -> str:
 
 @app.on_message(Filters.document)
 def download_telegram_media(client, message):
-	me=app.get_users('me').id
+	me=Config.userid
 	if not message.from_user.id == me :
 		client.send_message(
 			chat_id=message.chat.id,
