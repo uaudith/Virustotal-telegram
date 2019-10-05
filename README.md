@@ -1,7 +1,7 @@
 # Virustotal-telegram
 A telegram bot which can scan telegram files smaller than 32MB.
 
-#Instructions
+# Instructions
 
   1. Hit Deploy Button.
   
