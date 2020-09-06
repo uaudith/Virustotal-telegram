@@ -2,7 +2,8 @@ import math
 import os
 import time
 
-from pyrogram import Client, Filters, ForceReply, InputMediaPhoto
+from pyrogram import Client, filters
+from pyrogram.types import ForceReply, InputMediaPhoto
 
 from config import Config
 from virustotal import virus
@@ -71,7 +72,7 @@ def TimeFormatter(milliseconds: int) -> str:
 		((str(milliseconds) + "ms, ") if milliseconds else "")
 	return tmp[:-2]
 
-@app.on_message(Filters.document)
+@app.on_message(filters.document)
 def download_telegram_media(client, message):
 	me=Config.userid
 	if not message.from_user.id == me :
@@ -114,8 +115,8 @@ def check_size(path,userid):
 	obj=virus(str(path))
 	if b>32*1024*1024:
 		send_msg(userid,'Sorry This file is larger than 32Mb')
+		# obj.large_files()
 		return
-		obj.large_files()
 	else:
 		obj.smallfiles()
 	if obj.res==False:
