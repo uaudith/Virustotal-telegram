@@ -3,7 +3,7 @@ chardet==3.0.4
 idna==2.8
 pyaes==1.6.1
 Pyrogram==1.0.7
-PySocks==1.7.0
+PySocks
 requests==2.22.0
 TgCrypto==1.2.0
 
