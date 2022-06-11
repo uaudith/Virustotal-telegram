@@ -1,5 +1,8 @@
+import os
+import sys
 import requests
 import json
+import webbrowser
 from config import Config
 
 apikey = Config.VIRUSTOTAL_API
